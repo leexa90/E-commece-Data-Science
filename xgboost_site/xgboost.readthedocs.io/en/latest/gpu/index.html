@@ -1,0 +1,500 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>XGBoost GPU Support &#8212; xgboost 1.0.0-SNAPSHOT documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="https://assets.readthedocs.org/static/css/badge_only.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="XGBoost Parameters" href="../parameter.html" />
+    <link rel="prev" title="Frequently Asked Questions" href="../faq.html" />
+  
+   
+
+  
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="index.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "gpu/index"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../parameter.html" title="XGBoost Parameters"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../faq.html" title="Frequently Asked Questions"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">xgboost 1.0.0-SNAPSHOT documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="index.html#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">XGBoost</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../build.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started.html">Get Started with XGBoost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">XGBoost Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://discuss.xgboost.ai">XGBoost User Forum</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="index.html#">GPU support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parameter.html">XGBoost Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../R-package/index.html">R package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jvm/index.html">JVM package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../julia.html">Julia package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">CLI interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contrib/index.html">Contribute to XGBoost</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">Docs</a></li>
+              
+              <li>XGBoost GPU Support</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="xgboost-gpu-support">
+<h1>XGBoost GPU Support<a class="headerlink" href="index.html#xgboost-gpu-support" title="Permalink to this headline">¶</a></h1>
+<p>This page contains information about GPU algorithms supported in XGBoost.
+To install GPU support, checkout the <a class="reference internal" href="../build.html"><span class="doc">Installation Guide</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>CUDA 9.0, Compute Capability 3.5 required</p>
+<p>The GPU algorithms in XGBoost require a graphics card with compute capability 3.5 or higher, with
+CUDA toolkits 9.0 or later.
+(See <a class="reference external" href="https://en.wikipedia.org/wiki/CUDA#GPUs_supported">this list</a> to look up compute capability of your GPU card.)</p>
+</div>
+<div class="section" id="cuda-accelerated-tree-construction-algorithms">
+<h2>CUDA Accelerated Tree Construction Algorithms<a class="headerlink" href="index.html#cuda-accelerated-tree-construction-algorithms" title="Permalink to this headline">¶</a></h2>
+<p>Tree construction (training) and prediction can be accelerated with CUDA-capable GPUs.</p>
+<div class="section" id="usage">
+<h3>Usage<a class="headerlink" href="index.html#usage" title="Permalink to this headline">¶</a></h3>
+<p>Specify the <code class="docutils literal notranslate"><span class="pre">tree_method</span></code> parameter as one of the following algorithms.</p>
+<div class="section" id="algorithms">
+<h4>Algorithms<a class="headerlink" href="index.html#algorithms" title="Permalink to this headline">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 88%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>tree_method</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>gpu_exact (deprecated)</p></td>
+<td><p>The standard XGBoost tree construction algorithm. Performs exact search for splits. Slower and uses considerably more memory than <code class="docutils literal notranslate"><span class="pre">gpu_hist</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>gpu_hist</p></td>
+<td><p>Equivalent to the XGBoost fast histogram algorithm. Much faster and uses considerably less memory. NOTE: Will run very slowly on GPUs older than Pascal architecture.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="supported-parameters">
+<h4>Supported parameters<a class="headerlink" href="index.html#supported-parameters" title="Permalink to this headline">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 38%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>parameter</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">gpu_exact</span></code> (deprecated)</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">gpu_hist</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">subsample</span></code></p></td>
+<td><p>✘</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">colsample_bytree</span></code></p></td>
+<td><p>✘</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">colsample_bylevel</span></code></p></td>
+<td><p>✘</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">max_bin</span></code></p></td>
+<td><p>✘</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">gpu_id</span></code></p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">n_gpus</span></code> (deprecated)</p></td>
+<td><p>✘</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">predictor</span></code></p></td>
+<td><p>✔</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">grow_policy</span></code></p></td>
+<td><p>✘</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">monotone_constraints</span></code></p></td>
+<td><p>✘</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">interaction_constraints</span></code></p></td>
+<td><p>✘</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">single_precision_histogram</span></code></p></td>
+<td><p>✘</p></td>
+<td><p>✔</p></td>
+</tr>
+</tbody>
+</table>
+<p>GPU accelerated prediction is enabled by default for the above mentioned <code class="docutils literal notranslate"><span class="pre">tree_method</span></code> parameters but can be switched to CPU prediction by setting <code class="docutils literal notranslate"><span class="pre">predictor</span></code> to <code class="docutils literal notranslate"><span class="pre">cpu_predictor</span></code>. This could be useful if you want to conserve GPU memory. Likewise when using CPU algorithms, GPU accelerated prediction can be enabled by setting <code class="docutils literal notranslate"><span class="pre">predictor</span></code> to <code class="docutils literal notranslate"><span class="pre">gpu_predictor</span></code>.</p>
+<p>The experimental parameter <code class="docutils literal notranslate"><span class="pre">single_precision_histogram</span></code> can be set to True to enable building histograms using single precision. This may improve speed, in particular on older architectures.</p>
+<p>The device ordinal (which GPU to use if you have many of them) can be selected using the
+<code class="docutils literal notranslate"><span class="pre">gpu_id</span></code> parameter, which defaults to 0 (the first device reported by CUDA runtime).</p>
+<p>The GPU algorithms currently work with CLI, Python and R packages. See <a class="reference internal" href="../build.html"><span class="doc">Installation Guide</span></a> for details.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Python example</span><a class="headerlink" href="index.html#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">param</span><span class="p">[</span><span class="s1">&#39;gpu_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">param</span><span class="p">[</span><span class="s1">&#39;max_bin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">param</span><span class="p">[</span><span class="s1">&#39;tree_method&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;gpu_hist&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="single-node-multi-gpu">
+<h3>Single Node Multi-GPU<a class="headerlink" href="index.html#single-node-multi-gpu" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Single node multi-GPU training with <cite>n_gpus</cite> parameter is deprecated after 0.90.  Please use distributed GPU training with one process per GPU.</p>
+</div>
+</div>
+<div class="section" id="multi-node-multi-gpu-training">
+<h3>Multi-node Multi-GPU Training<a class="headerlink" href="index.html#multi-node-multi-gpu-training" title="Permalink to this headline">¶</a></h3>
+<p>XGBoost supports fully distributed GPU training using <a class="reference external" href="https://dask.org/">Dask</a>. See Python documentation <a class="reference internal" href="../python/python_api.html#dask-api"><span class="std std-ref">Dask API</span></a> and worked examples <a class="reference external" href="https://github.com/dmlc/xgboost/tree/master/demo/dask">here</a>.</p>
+</div>
+<div class="section" id="objective-functions">
+<h3>Objective functions<a class="headerlink" href="index.html#objective-functions" title="Permalink to this headline">¶</a></h3>
+<p>Most of the objective functions implemented in XGBoost can be run on GPU.  Following table shows current support status.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 61%" />
+<col style="width: 39%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Objectives</p></td>
+<td><p>GPU support</p></td>
+</tr>
+<tr class="row-even"><td><p>reg:squarederror</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p>reg:squaredlogerror</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p>reg:logistic</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p>binary:logistic</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p>binary:logitraw</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p>binary:hinge</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p>count:poisson</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p>reg:gamma</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p>reg:tweedie</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p>multi:softmax</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p>multi:softprob</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p>survival:cox</p></td>
+<td><p>✘</p></td>
+</tr>
+<tr class="row-even"><td><p>rank:pairwise</p></td>
+<td><p>✘</p></td>
+</tr>
+<tr class="row-odd"><td><p>rank:ndcg</p></td>
+<td><p>✘</p></td>
+</tr>
+<tr class="row-even"><td><p>rank:map</p></td>
+<td><p>✘</p></td>
+</tr>
+</tbody>
+</table>
+<p>Objective will run on GPU if GPU updater (<code class="docutils literal notranslate"><span class="pre">gpu_hist</span></code>), otherwise they will run on CPU by
+default.  For unsupported objectives XGBoost will fall back to using CPU implementation by
+default.</p>
+</div>
+<div class="section" id="metric-functions">
+<h3>Metric functions<a class="headerlink" href="index.html#metric-functions" title="Permalink to this headline">¶</a></h3>
+<p>Following table shows current support status for evaluation metrics on the GPU.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 43%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>GPU Support</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>rmse</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p>rmsle</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p>mae</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p>logloss</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p>error</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p>merror</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p>mlogloss</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p>auc</p></td>
+<td><p>✘</p></td>
+</tr>
+<tr class="row-even"><td><p>aucpr</p></td>
+<td><p>✘</p></td>
+</tr>
+<tr class="row-odd"><td><p>ndcg</p></td>
+<td><p>✘</p></td>
+</tr>
+<tr class="row-even"><td><p>map</p></td>
+<td><p>✘</p></td>
+</tr>
+<tr class="row-odd"><td><p>poisson-nloglik</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-even"><td><p>gamma-nloglik</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p>cox-nloglik</p></td>
+<td><p>✘</p></td>
+</tr>
+<tr class="row-even"><td><p>gamma-deviance</p></td>
+<td><p>✔</p></td>
+</tr>
+<tr class="row-odd"><td><p>tweedie-nloglik</p></td>
+<td><p>✔</p></td>
+</tr>
+</tbody>
+</table>
+<p>Similar to objective functions, default device for metrics is selected based on tree
+updater and predictor (which is selected based on tree updater).</p>
+</div>
+<div class="section" id="benchmarks">
+<h3>Benchmarks<a class="headerlink" href="index.html#benchmarks" title="Permalink to this headline">¶</a></h3>
+<p>You can run benchmarks on synthetic data for binary classification:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python tests/benchmark/benchmark.py
+</pre></div>
+</div>
+<p>Training time time on 1,000,000 rows x 50 columns with 500 boosting iterations and 0.25/0.75 test/train split on i7-6700K CPU &#64; 4.00GHz and Pascal Titan X yields the following results:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 58%" />
+<col style="width: 42%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>tree_method</p></th>
+<th class="head"><p>Time (s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>gpu_hist</p></td>
+<td><p>13.87</p></td>
+</tr>
+<tr class="row-odd"><td><p>hist</p></td>
+<td><p>63.55</p></td>
+</tr>
+<tr class="row-even"><td><p>gpu_exact</p></td>
+<td><p>161.08</p></td>
+</tr>
+<tr class="row-odd"><td><p>exact</p></td>
+<td><p>1082.20</p></td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="reference external" href="https://xgboost.ai/2016/12/14/GPU-accelerated-xgboost.html">GPU Accelerated XGBoost</a> and <a class="reference external" href="https://xgboost.ai/2018/07/04/gpu-xgboost-update.html">Updates to the XGBoost GPU algorithms</a> for additional performance benchmarks of the <code class="docutils literal notranslate"><span class="pre">gpu_exact</span></code> and <code class="docutils literal notranslate"><span class="pre">gpu_hist</span></code> tree methods.</p>
+</div>
+<div class="section" id="developer-notes">
+<h3>Developer notes<a class="headerlink" href="index.html#developer-notes" title="Permalink to this headline">¶</a></h3>
+<p>The application may be profiled with annotations by specifying USE_NTVX to cmake and providing the path to the stand-alone nvtx header via NVTX_HEADER_DIR. Regions covered by the ‘Monitor’ class in cuda code will automatically appear in the nsight profiler.</p>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="index.html#references" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://peerj.com/articles/cs-127/">Mitchell R, Frank E. (2017) Accelerating the XGBoost algorithm using GPU computing. PeerJ Computer Science 3:e127 https://doi.org/10.7717/peerj-cs.127</a></p>
+<p><a class="reference external" href="https://devblogs.nvidia.com/parallelforall/gradient-boosting-decision-trees-xgboost-cuda/">Nvidia Parallel Forall: Gradient Boosting, Decision Trees and XGBoost with CUDA</a></p>
+<div class="section" id="contributors">
+<h3>Contributors<a class="headerlink" href="index.html#contributors" title="Permalink to this headline">¶</a></h3>
+<p>Many thanks to the following contributors (alphabetical order):</p>
+<ul class="simple">
+<li><p>Andrey Adinets</p></li>
+<li><p>Jiaming Yuan</p></li>
+<li><p>Jonathan C. McKinney</p></li>
+<li><p>Matthew Jones</p></li>
+<li><p>Philip Cho</p></li>
+<li><p>Rory Mitchell</p></li>
+<li><p>Shankara Rao Thejaswi Nanditale</p></li>
+<li><p>Vinay Deshpande</p></li>
+</ul>
+<p>Please report bugs to the XGBoost issues list: <a class="reference external" href="https://github.com/dmlc/xgboost/issues">https://github.com/dmlc/xgboost/issues</a>.  For general questions please visit our user form: <a class="reference external" href="https://discuss.xgboost.ai/">https://discuss.xgboost.ai/</a>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="../faq.html" title="previous chapter (use the left arrow)">Frequently Asked Questions</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="../parameter.html" title="next chapter (use the right arrow)">XGBoost Parameters</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../parameter.html" title="XGBoost Parameters"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../faq.html" title="Frequently Asked Questions"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">xgboost 1.0.0-SNAPSHOT documentation</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2019, xgboost developers. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+</html>

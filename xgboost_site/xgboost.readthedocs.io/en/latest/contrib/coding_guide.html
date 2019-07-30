@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Coding Guideline &#8212; xgboost 1.0.0-SNAPSHOT documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="https://assets.readthedocs.org/static/css/badge_only.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Adding and running tests" href="unit_tests.html" />
+    <link rel="prev" title="XGBoost Community Guideline" href="community.html" />
+  
+   
+
+  
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="coding_guide.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "contrib/coding_guide"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="unit_tests.html" title="Adding and running tests"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="community.html" title="XGBoost Community Guideline"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">xgboost 1.0.0-SNAPSHOT documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Contribute to XGBoost</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="coding_guide.html#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">XGBoost</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../build.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started.html">Get Started with XGBoost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">XGBoost Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://discuss.xgboost.ai">XGBoost User Forum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gpu/index.html">GPU support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parameter.html">XGBoost Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../R-package/index.html">R package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jvm/index.html">JVM package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../julia.html">Julia package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">CLI interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Contribute to XGBoost</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="community.html">Community Guideline</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="coding_guide.html#">Coding Guideline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit_tests.html">Adding and running tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs.html">Docs and Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_guide.html">Git Workflow Howtos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release.html">XGBoost Release Policy</a></li>
+</ul>
+</li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">Docs</a></li>
+              
+                <li><a href="index.html">Contribute to XGBoost</a></li>
+              
+              <li>Coding Guideline</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="coding-guideline">
+<h1>Coding Guideline<a class="headerlink" href="coding_guide.html#coding-guideline" title="Permalink to this headline">¶</a></h1>
+<p><strong>Contents</strong></p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="coding_guide.html#c-coding-guideline" id="id2">C++ Coding Guideline</a></p></li>
+<li><p><a class="reference internal" href="coding_guide.html#python-coding-guideline" id="id3">Python Coding Guideline</a></p></li>
+<li><p><a class="reference internal" href="coding_guide.html#r-coding-guideline" id="id4">R Coding Guideline</a></p>
+<ul>
+<li><p><a class="reference internal" href="coding_guide.html#code-style" id="id5">Code Style</a></p></li>
+<li><p><a class="reference internal" href="coding_guide.html#rmarkdown-vignettes" id="id6">Rmarkdown Vignettes</a></p></li>
+<li><p><a class="reference internal" href="coding_guide.html#r-package-versioning" id="id7">R package versioning</a></p></li>
+<li><p><a class="reference internal" href="coding_guide.html#registering-native-routines-in-r" id="id8">Registering native routines in R</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="coding_guide.html#running-formatting-checks-locally" id="id9">Running Formatting Checks Locally</a></p>
+<ul>
+<li><p><a class="reference internal" href="coding_guide.html#linter" id="id10">Linter</a></p></li>
+<li><p><a class="reference internal" href="coding_guide.html#clang-tidy" id="id11">Clang-tidy</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="c-coding-guideline">
+<h2>C++ Coding Guideline<a class="headerlink" href="coding_guide.html#c-coding-guideline" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Follow <a class="reference external" href="https://google.github.io/styleguide/cppguide.html">Google style for C++</a>, with two exceptions:</p>
+<ul>
+<li><p>Each line of text may contain up to 100 characters.</p></li>
+<li><p>The use of C++ exceptions is allowed.</p></li>
+</ul>
+</li>
+<li><p>Use C++11 features such as smart pointers, braced initializers, lambda functions, and <code class="docutils literal notranslate"><span class="pre">std::thread</span></code>.</p></li>
+<li><p>Use Doxygen to document all the interface code.</p></li>
+<li><p>We have a series of automatic checks to ensure that all of our codebase complies with the Google style. Before submitting your pull request, you are encouraged to run the style checks on your machine. See <a class="reference internal" href="coding_guide.html#running-checks-locally"><span class="std std-ref">R Coding Guideline</span></a>.</p></li>
+</ul>
+</div>
+<div class="section" id="python-coding-guideline">
+<h2>Python Coding Guideline<a class="headerlink" href="coding_guide.html#python-coding-guideline" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Follow <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP 8: Style Guide for Python Code</a>. We use PyLint to automatically enforce PEP 8 style across our Python codebase. Before submitting your pull request, you are encouraged to run PyLint on your machine. See <a class="reference internal" href="coding_guide.html#running-checks-locally"><span class="std std-ref">R Coding Guideline</span></a>.</p></li>
+<li><p>Docstrings should be in <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">NumPy docstring format</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="r-coding-guideline">
+<span id="running-checks-locally"></span><h2>R Coding Guideline<a class="headerlink" href="coding_guide.html#r-coding-guideline" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="code-style">
+<h3>Code Style<a class="headerlink" href="coding_guide.html#code-style" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>We follow Google’s C++ Style guide for C++ code.</p>
+<ul class="simple">
+<li><p>This is mainly to be consistent with the rest of the project.</p></li>
+<li><p>Another reason is we will be able to check style automatically with a linter.</p></li>
+</ul>
+</li>
+<li><p>You can check the style of the code by typing the following command at root folder.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make rcpplint
+</pre></div>
+</div>
+</li>
+<li><p>When needed, you can disable the linter warning of certain line with <code class="docutils literal notranslate"><span class="pre">//</span> <span class="pre">NOLINT(*)</span></code> comments.</p></li>
+<li><p>We use <a class="reference external" href="https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html">roxygen</a> for documenting the R package.</p></li>
+</ul>
+</div>
+<div class="section" id="rmarkdown-vignettes">
+<h3>Rmarkdown Vignettes<a class="headerlink" href="coding_guide.html#rmarkdown-vignettes" title="Permalink to this headline">¶</a></h3>
+<p>Rmarkdown vignettes are placed in <a class="reference external" href="https://github.com/dmlc/xgboost/tree/master/R-package/vignettes">R-package/vignettes</a>.
+These Rmarkdown files are not compiled. We host the compiled version on <a class="reference external" href="https://github.com/dmlc/xgboost/tree/master/doc/R-package">doc/R-package</a>.</p>
+<p>The following steps are followed to add a new Rmarkdown vignettes:</p>
+<ul>
+<li><p>Add the original rmarkdown to <code class="docutils literal notranslate"><span class="pre">R-package/vignettes</span></code>.</p></li>
+<li><p>Modify <code class="docutils literal notranslate"><span class="pre">doc/R-package/Makefile</span></code> to add the markdown files to be build.</p></li>
+<li><p>Clone the <a class="reference external" href="https://github.com/dmlc/web-data">dmlc/web-data</a> repo to folder <code class="docutils literal notranslate"><span class="pre">doc</span></code>.</p></li>
+<li><p>Now type the following command on <code class="docutils literal notranslate"><span class="pre">doc/R-package</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make the-markdown-to-make.md
+</pre></div>
+</div>
+</li>
+<li><p>This will generate the markdown, as well as the figures in <code class="docutils literal notranslate"><span class="pre">doc/web-data/xgboost/knitr</span></code>.</p></li>
+<li><p>Modify the <code class="docutils literal notranslate"><span class="pre">doc/R-package/index.md</span></code> to point to the generated markdown.</p></li>
+<li><p>Add the generated figure to the <code class="docutils literal notranslate"><span class="pre">dmlc/web-data</span></code> repo.</p>
+<ul class="simple">
+<li><p>If you already cloned the repo to doc, this means <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code></p></li>
+</ul>
+</li>
+<li><p>Create PR for both the markdown and <code class="docutils literal notranslate"><span class="pre">dmlc/web-data</span></code>.</p></li>
+<li><p>You can also build the document locally by typing the following command at the <code class="docutils literal notranslate"><span class="pre">doc</span></code> directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make html
+</pre></div>
+</div>
+</li>
+</ul>
+<p>The reason we do this is to avoid exploded repo size due to generated images.</p>
+</div>
+<div class="section" id="r-package-versioning">
+<h3>R package versioning<a class="headerlink" href="coding_guide.html#r-package-versioning" title="Permalink to this headline">¶</a></h3>
+<p>See <a class="reference internal" href="release.html#release"><span class="std std-ref">XGBoost Release Policy</span></a>.</p>
+</div>
+<div class="section" id="registering-native-routines-in-r">
+<h3>Registering native routines in R<a class="headerlink" href="coding_guide.html#registering-native-routines-in-r" title="Permalink to this headline">¶</a></h3>
+<p>According to <a class="reference external" href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Registering-native-routines">R extension manual</a>,
+it is good practice to register native routines and to disable symbol search. When any changes or additions are made to the
+C++ interface of the R package, please make corresponding changes in <code class="docutils literal notranslate"><span class="pre">src/init.c</span></code> as well.</p>
+</div>
+</div>
+<div class="section" id="running-formatting-checks-locally">
+<h2>Running Formatting Checks Locally<a class="headerlink" href="coding_guide.html#running-formatting-checks-locally" title="Permalink to this headline">¶</a></h2>
+<p>Once you submit a pull request to <a class="reference external" href="https://github.com/dmlc/xgboost">dmlc/xgboost</a>, we perform
+two automatic checks to enforce coding style conventions. To expedite the code review process, you are encouraged to run the checks locally on your machine prior to submitting your pull request.</p>
+<div class="section" id="linter">
+<h3>Linter<a class="headerlink" href="coding_guide.html#linter" title="Permalink to this headline">¶</a></h3>
+<p>We use <a class="reference external" href="https://github.com/PyCQA/pylint">pylint</a> and <a class="reference external" href="https://github.com/cpplint/cpplint">cpplint</a> to enforce style convention and find potential errors. Linting is especially useful for Python, as we can catch many errors that would have otherwise occured at run-time.</p>
+<p>To run this check locally, run the following command from the top level source tree:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /path/to/xgboost/
+make lint
+</pre></div>
+</div>
+<p>This command requires the Python packages pylint and cpplint.</p>
+</div>
+<div class="section" id="clang-tidy">
+<h3>Clang-tidy<a class="headerlink" href="coding_guide.html#clang-tidy" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://clang.llvm.org/extra/clang-tidy/">Clang-tidy</a> is an advance linter for C++ code, made by the LLVM team. We use it to conform our C++ codebase to modern C++ practices and conventions.</p>
+<p>To run this check locally, run the following command from the top level source tree:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /path/to/xgboost/
+python3 tests/ci_build/tidy.py --gtest-path<span class="o">=</span>/path/to/google-test
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">--gtest-path</span></code> option specifies the full path of Google Test library.</p>
+<p>Also, the script accepts two optional integer arguments, namely <code class="docutils literal notranslate"><span class="pre">--cpp</span></code> and <code class="docutils literal notranslate"><span class="pre">--cuda</span></code>. By default they are both set to 1, meaning that both C++ and CUDA code will be checked. If the CUDA toolkit is not installed on your machine, you’ll encounter an error. To exclude CUDA source from linting, use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /path/to/xgboost/
+python3 tests/ci_build/tidy.py --cuda<span class="o">=</span><span class="m">0</span> --gtest-path<span class="o">=</span>/path/to/google-test
+</pre></div>
+</div>
+<p>Similarly, if you want to exclude C++ source from linting:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /path/to/xgboost/
+python3 tests/ci_build/tidy.py --cpp<span class="o">=</span><span class="m">0</span> --gtest-path<span class="o">=</span>/path/to/google-test
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="community.html" title="previous chapter (use the left arrow)">XGBoost Community Guideline</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="unit_tests.html" title="next chapter (use the right arrow)">Adding and running tests</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="unit_tests.html" title="Adding and running tests"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="community.html" title="XGBoost Community Guideline"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">xgboost 1.0.0-SNAPSHOT documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Contribute to XGBoost</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2019, xgboost developers. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+</html>

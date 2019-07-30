@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Adding and running tests &#8212; xgboost 1.0.0-SNAPSHOT documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="https://assets.readthedocs.org/static/css/badge_only.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Documentation and Examples" href="docs.html" />
+    <link rel="prev" title="Coding Guideline" href="coding_guide.html" />
+  
+   
+
+  
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="unit_tests.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "contrib/unit_tests"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="docs.html" title="Documentation and Examples"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="coding_guide.html" title="Coding Guideline"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">xgboost 1.0.0-SNAPSHOT documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Contribute to XGBoost</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="unit_tests.html#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">XGBoost</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../build.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started.html">Get Started with XGBoost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">XGBoost Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://discuss.xgboost.ai">XGBoost User Forum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gpu/index.html">GPU support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parameter.html">XGBoost Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../R-package/index.html">R package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jvm/index.html">JVM package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../julia.html">Julia package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">CLI interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Contribute to XGBoost</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="community.html">Community Guideline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding_guide.html">Coding Guideline</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="unit_tests.html#">Adding and running tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs.html">Docs and Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_guide.html">Git Workflow Howtos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release.html">XGBoost Release Policy</a></li>
+</ul>
+</li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">Docs</a></li>
+              
+                <li><a href="index.html">Contribute to XGBoost</a></li>
+              
+              <li>Adding and running tests</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="adding-and-running-tests">
+<h1>Adding and running tests<a class="headerlink" href="unit_tests.html#adding-and-running-tests" title="Permalink to this headline">¶</a></h1>
+<p>A high-quality suite of tests is crucial in ensuring correctness and robustness of the codebase. Here, we provide instructions how to run unit tests, and also how to add a new one.</p>
+<p><strong>Contents</strong></p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="unit_tests.html#adding-a-new-unit-test" id="id3">Adding a new unit test</a></p>
+<ul>
+<li><p><a class="reference internal" href="unit_tests.html#python-package-pytest" id="id4">Python package: pytest</a></p></li>
+<li><p><a class="reference internal" href="unit_tests.html#c-google-test" id="id5">C++: Google Test</a></p></li>
+<li><p><a class="reference internal" href="unit_tests.html#jvm-packages-junit-scalatest" id="id6">JVM packages: JUnit / scalatest</a></p></li>
+<li><p><a class="reference internal" href="unit_tests.html#r-package-testthat" id="id7">R package: testthat</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="unit_tests.html#running-unit-tests-locally" id="id8">Running Unit Tests Locally</a></p>
+<ul>
+<li><p><a class="reference internal" href="unit_tests.html#r-package" id="id9">R package</a></p></li>
+<li><p><a class="reference internal" href="unit_tests.html#jvm-packages" id="id10">JVM packages</a></p></li>
+<li><p><a class="reference internal" href="unit_tests.html#running-pytest" id="id11">Python package: pytest</a></p></li>
+<li><p><a class="reference internal" href="unit_tests.html#running-gtest" id="id12">C++: Google Test</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="unit_tests.html#sanitizers-detect-memory-errors-and-data-races" id="id13">Sanitizers: Detect memory errors and data races</a></p>
+<ul>
+<li><p><a class="reference internal" href="unit_tests.html#how-to-build-xgboost-with-sanitizers" id="id14">How to build XGBoost with sanitizers</a></p></li>
+<li><p><a class="reference internal" href="unit_tests.html#how-to-use-sanitizers-with-cuda-support" id="id15">How to use sanitizers with CUDA support</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="adding-a-new-unit-test">
+<h2>Adding a new unit test<a class="headerlink" href="unit_tests.html#adding-a-new-unit-test" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="python-package-pytest">
+<h3>Python package: pytest<a class="headerlink" href="unit_tests.html#python-package-pytest" title="Permalink to this headline">¶</a></h3>
+<p>Add your test under the directory <a class="reference external" href="https://github.com/dmlc/xgboost/tree/master/tests/python">tests/python/</a> or <a class="reference external" href="https://github.com/dmlc/xgboost/tree/master/tests/python-gpu">tests/python-gpu/</a> (if you are testing GPU code). Refer to <a class="reference external" href="https://docs.pytest.org/en/latest/getting-started.html">the PyTest tutorial</a> to learn how to write tests for Python code.</p>
+<p>You may try running your test by following instructions in <a class="reference internal" href="unit_tests.html#running-pytest"><span class="std std-ref">this section</span></a>.</p>
+</div>
+<div class="section" id="c-google-test">
+<h3>C++: Google Test<a class="headerlink" href="unit_tests.html#c-google-test" title="Permalink to this headline">¶</a></h3>
+<p>Add your test under the directory <a class="reference external" href="https://github.com/dmlc/xgboost/tree/master/tests/cpp">tests/cpp/</a>. Refer to <a class="reference external" href="https://developer.ibm.com/articles/au-googletestingframework/">this excellent tutorial on using Google Test</a>.</p>
+<p>You may try running your test by following instructions in <a class="reference internal" href="unit_tests.html#running-gtest"><span class="std std-ref">this section</span></a>.</p>
+</div>
+<div class="section" id="jvm-packages-junit-scalatest">
+<h3>JVM packages: JUnit / scalatest<a class="headerlink" href="unit_tests.html#jvm-packages-junit-scalatest" title="Permalink to this headline">¶</a></h3>
+<p>The JVM packages for XGBoost (XGBoost4J / XGBoost4J-Spark) use <a class="reference external" href="https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html">the Maven Standard Directory Layout</a>. Specifically, the tests for the JVM packages are located in the following locations:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/dmlc/xgboost/tree/master/jvm-packages/xgboost4j/src/test">jvm-packages/xgboost4j/src/test/</a></p></li>
+<li><p><a class="reference external" href="https://github.com/dmlc/xgboost/tree/master/jvm-packages/xgboost4j-spark/src/test">jvm-packages/xgboost4j-spark/src/test/</a></p></li>
+</ul>
+<p>To write a test for Java code, see <a class="reference external" href="https://junit.org/junit5/docs/current/user-guide/">JUnit 5 tutorial</a>.
+To write a test for Scala, see <a class="reference external" href="http://www.scalatest.org/user_guide/writing_your_first_test">Scalatest tutorial</a>.</p>
+<p>You may try running your test by following instructions in <a class="reference internal" href="unit_tests.html#running-jvm-tests"><span class="std std-ref">this section</span></a>.</p>
+</div>
+<div class="section" id="r-package-testthat">
+<h3>R package: testthat<a class="headerlink" href="unit_tests.html#r-package-testthat" title="Permalink to this headline">¶</a></h3>
+<p>Add your test under the directory <a class="reference external" href="https://github.com/dmlc/xgboost/tree/master/R-package/tests/testthat">R-package/tests/testthat</a>. Refer to <a class="reference external" href="https://kbroman.org/pkg_primer/pages/tests.html">this excellent tutorial on testthat</a>.</p>
+<p>You may try running your test by following instructions in <a class="reference internal" href="unit_tests.html#running-r-tests"><span class="std std-ref">this section</span></a>.</p>
+</div>
+</div>
+<div class="section" id="running-unit-tests-locally">
+<h2>Running Unit Tests Locally<a class="headerlink" href="unit_tests.html#running-unit-tests-locally" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="r-package">
+<span id="running-r-tests"></span><h3>R package<a class="headerlink" href="unit_tests.html#r-package" title="Permalink to this headline">¶</a></h3>
+<p>Run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make Rcheck
+</pre></div>
+</div>
+<p>at the root of the project directory.</p>
+</div>
+<div class="section" id="jvm-packages">
+<span id="running-jvm-tests"></span><h3>JVM packages<a class="headerlink" href="unit_tests.html#jvm-packages" title="Permalink to this headline">¶</a></h3>
+<p>As part of the building process, tests are run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mvn package
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-pytest">
+<span id="id1"></span><h3>Python package: pytest<a class="headerlink" href="unit_tests.html#running-pytest" title="Permalink to this headline">¶</a></h3>
+<p>To run Python unit tests, first install <a class="reference external" href="https://docs.pytest.org/en/latest/contents.html">pytest</a> package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip3 install pytest
+</pre></div>
+</div>
+<p>Then compile XGBoost according to instructions in <a class="reference internal" href="../build.html#build-shared-lib"><span class="std std-ref">Building the Shared Library</span></a>. Finally, invoke pytest at the project root directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tell Python where to find XGBoost module</span>
+<span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span>./python-package
+pytest -v -s --fulltrace tests/python
+</pre></div>
+</div>
+<p>In addition, to test CUDA code, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tell Python where to find XGBoost module</span>
+<span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span>./python-package
+pytest -v -s --fulltrace tests/python-gpu
+</pre></div>
+</div>
+<p>(For this step, you should have compiled XGBoost with CUDA enabled.)</p>
+</div>
+<div class="section" id="running-gtest">
+<span id="id2"></span><h3>C++: Google Test<a class="headerlink" href="unit_tests.html#running-gtest" title="Permalink to this headline">¶</a></h3>
+<p>To build and run C++ unit tests, install <a class="reference external" href="https://github.com/google/googletest">Google Test</a> library with headers
+and then enable tests while running CMake:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir build
+<span class="nb">cd</span> build
+cmake -DGOOGLE_TEST<span class="o">=</span>ON -DGTEST_ROOT<span class="o">=</span>/path/to/google-test ..
+make
+make <span class="nb">test</span>
+</pre></div>
+</div>
+<p>To enable tests for CUDA code, add <code class="docutils literal notranslate"><span class="pre">-DUSE_CUDA=ON</span></code> and <code class="docutils literal notranslate"><span class="pre">-DUSE_NCCL=ON</span></code> (CUDA toolkit required):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir build
+<span class="nb">cd</span> build
+cmake -DGOOGLE_TEST<span class="o">=</span>ON -DGTEST_ROOT<span class="o">=</span>/path/to/google-test -DUSE_CUDA<span class="o">=</span>ON -DUSE_NCCL<span class="o">=</span>ON ..
+make
+make <span class="nb">test</span>
+</pre></div>
+</div>
+<p>One can also run all unit test using ctest tool which provides higher flexibility. For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ctest --verbose
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="sanitizers-detect-memory-errors-and-data-races">
+<h2>Sanitizers: Detect memory errors and data races<a class="headerlink" href="unit_tests.html#sanitizers-detect-memory-errors-and-data-races" title="Permalink to this headline">¶</a></h2>
+<p>By default, sanitizers are bundled in GCC and Clang/LLVM. One can enable
+sanitizers with GCC &gt;= 4.8 or LLVM &gt;= 3.1, But some distributions might package
+sanitizers separately.  Here is a list of supported sanitizers with
+corresponding library names:</p>
+<ul class="simple">
+<li><p>Address sanitizer: libasan</p></li>
+<li><p>Leak sanitizer:    liblsan</p></li>
+<li><p>Thread sanitizer:  libtsan</p></li>
+</ul>
+<p>Memory sanitizer is exclusive to LLVM, hence not supported in XGBoost.</p>
+<div class="section" id="how-to-build-xgboost-with-sanitizers">
+<h3>How to build XGBoost with sanitizers<a class="headerlink" href="unit_tests.html#how-to-build-xgboost-with-sanitizers" title="Permalink to this headline">¶</a></h3>
+<p>One can build XGBoost with sanitizer support by specifying -DUSE_SANITIZER=ON.
+By default, address sanitizer and leak sanitizer are used when you turn the
+USE_SANITIZER flag on.  You can always change the default by providing a
+semicolon separated list of sanitizers to ENABLED_SANITIZERS.  Note that thread
+sanitizer is not compatible with the other two sanitizers.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -DUSE_SANITIZER<span class="o">=</span>ON -DENABLED_SANITIZERS<span class="o">=</span><span class="s2">&quot;address;leak&quot;</span> /path/to/xgboost
+</pre></div>
+</div>
+<p>By default, CMake will search regular system paths for sanitizers, you can also
+supply a specified SANITIZER_PATH.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake -DUSE_SANITIZER<span class="o">=</span>ON -DENABLED_SANITIZERS<span class="o">=</span><span class="s2">&quot;address;leak&quot;</span> <span class="se">\</span>
+-DSANITIZER_PATH<span class="o">=</span>/path/to/sanitizers /path/to/xgboost
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-to-use-sanitizers-with-cuda-support">
+<h3>How to use sanitizers with CUDA support<a class="headerlink" href="unit_tests.html#how-to-use-sanitizers-with-cuda-support" title="Permalink to this headline">¶</a></h3>
+<p>Runing XGBoost on CUDA with address sanitizer (asan) will raise memory error.
+To use asan with CUDA correctly, you need to configure asan via ASAN_OPTIONS
+environment variable:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">ASAN_OPTIONS</span><span class="o">=</span><span class="nv">protect_shadow_gap</span><span class="o">=</span><span class="m">0</span> <span class="si">${</span><span class="nv">BUILD_DIR</span><span class="si">}</span>/testxgboost
+</pre></div>
+</div>
+<p>For details, please consult <a class="reference external" href="https://github.com/google/sanitizers/wiki">official documentation</a> for sanitizers.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="coding_guide.html" title="previous chapter (use the left arrow)">Coding Guideline</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="docs.html" title="next chapter (use the right arrow)">Documentation and Examples</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="docs.html" title="Documentation and Examples"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="coding_guide.html" title="Coding Guideline"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">xgboost 1.0.0-SNAPSHOT documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Contribute to XGBoost</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2019, xgboost developers. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+</html>

@@ -1,0 +1,1251 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+          <title>xgboost4j_2.12 1.0.0-SNAPSHOT API  - ml.dmlc.xgboost4j.scala.Booster</title>
+          <meta name="description" content="xgboost4j 2.12 1.0.0 - SNAPSHOT API - ml.dmlc.xgboost4j.scala.Booster" />
+          <meta name="keywords" content="xgboost4j 2.12 1.0.0 SNAPSHOT API ml.dmlc.xgboost4j.scala.Booster" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../lib/jquery.js"></script>
+      <script type="text/javascript" src="../../../../lib/jquery.panzoom.min.js"></script>
+      <script type="text/javascript" src="../../../../lib/jquery.mousewheel.min.js"></script>
+      <script type="text/javascript" src="../../../../lib/index.js"></script>
+      <script type="text/javascript" src="../../../../index.js"></script>
+      <script type="text/javascript" src="../../../../lib/scheduler.js"></script>
+      <script type="text/javascript" src="../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+        /* this variable can be used by the JS to determine the path to the root document */
+        var toRoot = '../../../../';
+      </script>
+    
+        </head>
+        <body>
+      <div id="search">
+        <span id="doc-title">xgboost4j_2.12 1.0.0-SNAPSHOT API<span id="doc-version"></span></span>
+        <span class="close-results"><span class="left">&lt;</span> Back</span>
+        <div id="textfilter">
+          <span class="input">
+            <input autocapitalize="none" placeholder="Search" id="index-input" type="text" accesskey="/" />
+            <i class="clear material-icons"></i>
+            <i id="search-icon" class="material-icons"></i>
+          </span>
+        </div>
+    </div>
+      <div id="search-results">
+        <div id="search-progress">
+          <div id="progress-fill"></div>
+        </div>
+        <div id="results-content">
+          <div id="entity-results"></div>
+          <div id="member-results"></div>
+        </div>
+      </div>
+      <div id="content-scroll-container" style="-webkit-overflow-scrolling: touch;">
+        <div id="content-container" style="-webkit-overflow-scrolling: touch;">
+          <div id="subpackage-spacer">
+            <div id="packages">
+              <h1>Packages</h1>
+              <ul>
+                <li name="_root_.root" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="_root_"></a><a id="root:_root_"></a>
+      <span class="permalink">
+      <a href="index.html#_root_" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="../../../../index.html"><span class="name">root</span></a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../../../index.html" class="extype" name="_root_">root</a></dd></dl></div>
+    </li><li name="_root_.ml" visbl="pub" class="indented1 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ml"></a><a id="ml:ml"></a>
+      <span class="permalink">
+      <a href="index.html#ml" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="../../../index.html"><span class="name">ml</span></a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../../../index.html" class="extype" name="_root_">root</a></dd></dl></div>
+    </li><li name="ml.dmlc" visbl="pub" class="indented2 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="dmlc"></a><a id="dmlc:dmlc"></a>
+      <span class="permalink">
+      <a href="https://xgboost.readthedocs.io/en/latest/jvm/scaladocs/xgboost4j/ml/dmlc/xgboost4j/ml/index.html#dmlc" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="../../index.html"><span class="name">dmlc</span></a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../../index.html" class="extype" name="ml">ml</a></dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j" visbl="pub" class="indented3 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="xgboost4j"></a><a id="xgboost4j:xgboost4j"></a>
+      <span class="permalink">
+      <a href="https://xgboost.readthedocs.io/en/latest/jvm/scaladocs/xgboost4j/ml/dmlc/ml/dmlc/index.html#xgboost4j" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="../index.html"><span class="name">xgboost4j</span></a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../../index.html" class="extype" name="ml.dmlc">dmlc</a></dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala" visbl="pub" class="indented4 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="scala"></a><a id="scala:scala"></a>
+      <span class="permalink">
+      <a href="https://xgboost.readthedocs.io/en/latest/jvm/scaladocs/xgboost4j/ml/ml/dmlc/xgboost4j/index.html#scala" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a title="" href="index.html"><span class="name">scala</span></a>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="ml.dmlc.xgboost4j">xgboost4j</a></dd></dl></div>
+    </li><li class="current-entities indented4">
+                        <span class="separator"></span>
+                        <a class="class" href="Booster.html" title="Booster for xgboost, this is a model API that support interactive build of a XGBoost Model"></a>
+                        <a href="Booster.html" title="Booster for xgboost, this is a model API that support interactive build of a XGBoost Model">Booster</a>
+                      </li><li class="current-entities indented4">
+                        <span class="separator"></span>
+                        <a class="class" href="DMatrix.html" title=""></a>
+                        <a href="DMatrix.html" title="">DMatrix</a>
+                      </li><li class="current-entities indented4">
+                        <span class="separator"></span>
+                        <a class="trait" href="EvalTrait.html" title=""></a>
+                        <a href="EvalTrait.html" title="">EvalTrait</a>
+                      </li><li class="current-entities indented4">
+                        <span class="separator"></span>
+                        <a class="trait" href="ObjectiveTrait.html" title=""></a>
+                        <a href="ObjectiveTrait.html" title="">ObjectiveTrait</a>
+                      </li><li class="current-entities indented4">
+                        <span class="separator"></span>
+                        <a class="object" href="XGBoost$.html" title="XGBoost Scala Training function."></a>
+                        <a href="XGBoost$.html" title="XGBoost Scala Training function.">XGBoost</a>
+                      </li>
+              </ul>
+            </div>
+          </div>
+          <div id="content">
+            <body class="class type">
+      <div id="definition">
+        <div class="big-circle class">c</div>
+        <p id="owner"><a href="../../../index.html" class="extype" name="ml">ml</a>.<a href="../../index.html" class="extype" name="ml.dmlc">dmlc</a>.<a href="../index.html" class="extype" name="ml.dmlc.xgboost4j">xgboost4j</a>.<a href="index.html" class="extype" name="ml.dmlc.xgboost4j.scala">scala</a></p>
+        <h1>Booster<span class="permalink">
+      <a href="Booster.html" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span></h1>
+        <h3><span class="morelinks"></span></h3>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Booster</span><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span> with <span class="extype" name="com.esotericsoftware.kryo.KryoSerializable">KryoSerializable</span></span>
+      </span>
+      </h4>
+
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Booster for xgboost, this is a model API that support interactive build of a XGBoost Model</p><p>DEVELOPER WARNING: A Java Booster must not be shared by more than one Scala Booster</p></div><div class="toggleContainer block">
+          <span class="toggle">
+            Linear Supertypes
+          </span>
+          <div class="superTypes hiddenContent"><span class="extype" name="com.esotericsoftware.kryo.KryoSerializable">KryoSerializable</span>, <span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div class="toggle"></div>
+        <div id="memberfilter">
+          <i class="material-icons arrow"></i>
+          <span class="input">
+            <input id="mbrsel-input" placeholder="Filter all members" type="text" accesskey="/" />
+          </span>
+          <i class="clear material-icons"></i>
+        </div>
+        <div id="filterby">
+          <div id="order">
+            <span class="filtertype">Ordering</span>
+            <ol>
+              
+              <li class="alpha in"><span>Alphabetic</span></li>
+              <li class="inherit out"><span>By Inheritance</span></li>
+            </ol>
+          </div>
+          <div class="ancestors">
+                  <span class="filtertype">Inherited<br />
+                  </span>
+                  <ol id="linearization">
+                    <li class="in" name="ml.dmlc.xgboost4j.scala.Booster"><span>Booster</span></li><li class="in" name="com.esotericsoftware.kryo.KryoSerializable"><span>KryoSerializable</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  </ol>
+                </div><div class="ancestors">
+              <span class="filtertype"></span>
+              <ol>
+                <li class="hideall out"><span>Hide All</span></li>
+                <li class="showall in"><span>Show All</span></li>
+              </ol>
+            </div>
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+            </div>
+        </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        
+
+        
+
+        <div class="values members">
+              <h3>Value Members</h3>
+              <ol>
+                <li name="scala.AnyRef#!=" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="!=(x$1:Any):Boolean"></a><a id="!=(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="Booster.html#!=(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef###" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="##():Int"></a>
+      <span class="permalink">
+      <a href="Booster.html###():Int" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.AnyRef#==" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="==(x$1:Any):Boolean"></a><a id="==(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="Booster.html#==(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <span class="permalink">
+      <a href="Booster.html#asInstanceOf[T0]:T0" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#boost" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="boost(dtrain:ml.dmlc.xgboost4j.scala.DMatrix,grad:Array[Float],hess:Array[Float]):Unit"></a><a id="boost(DMatrix,Array[Float],Array[Float]):Unit"></a>
+      <span class="permalink">
+      <a href="Booster.html#boost(dtrain:ml.dmlc.xgboost4j.scala.DMatrix,grad:Array[Float],hess:Array[Float]):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">boost</span><span class="params">(<span name="dtrain">dtrain: <a href="DMatrix.html" class="extype" name="ml.dmlc.xgboost4j.scala.DMatrix">DMatrix</a></span>, <span name="grad">grad: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Float">Float</span>]</span>, <span name="hess">hess: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Float">Float</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">update with give grad and hess
+</p><div class="fullcomment"><div class="comment cmt"><p>update with give grad and hess
+</p></div><dl class="paramcmts block"><dt class="param">dtrain</dt><dd class="cmt"><p>training data</p></dd><dt class="param">grad</dt><dd class="cmt"><p>first order of gradient</p></dd><dt class="param">hess</dt><dd class="cmt"><p>seconde order of gradient</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="clone():Object"></a><a id="clone():AnyRef"></a>
+      <span class="permalink">
+      <a href="Booster.html#clone():Object" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="https://xgboost.readthedocs.io/en/latest/jvm/scaladocs/xgboost4j/java/lang/index.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#dispose" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="dispose:Unit"></a>
+      <span class="permalink">
+      <a href="Booster.html#dispose:Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">dispose</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <p class="shortcomment cmt"> Dispose the booster when it is no longer needed
+</p>
+    </li><li name="scala.AnyRef#eq" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="eq(x$1:AnyRef):Boolean"></a><a id="eq(AnyRef):Boolean"></a>
+      <span class="permalink">
+      <a href="Booster.html#eq(x$1:AnyRef):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#equals" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="equals(x$1:Any):Boolean"></a><a id="equals(Any):Boolean"></a>
+      <span class="permalink">
+      <a href="Booster.html#equals(x$1:Any):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#evalSet" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="evalSet(evalMatrixs:Array[ml.dmlc.xgboost4j.scala.DMatrix],evalNames:Array[String],eval:ml.dmlc.xgboost4j.scala.EvalTrait):String"></a><a id="evalSet(Array[DMatrix],Array[String],EvalTrait):String"></a>
+      <span class="permalink">
+      <a href="Booster.html#evalSet(evalMatrixs:Array[ml.dmlc.xgboost4j.scala.DMatrix],evalNames:Array[String],eval:ml.dmlc.xgboost4j.scala.EvalTrait):String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">evalSet</span><span class="params">(<span name="evalMatrixs">evalMatrixs: <span class="extype" name="scala.Array">Array</span>[<a href="DMatrix.html" class="extype" name="ml.dmlc.xgboost4j.scala.DMatrix">DMatrix</a>]</span>, <span name="evalNames">evalNames: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="eval">eval: <a href="EvalTrait.html" class="extype" name="ml.dmlc.xgboost4j.scala.EvalTrait">EvalTrait</a></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">evaluate with given customized Evaluation class
+</p><div class="fullcomment"><div class="comment cmt"><p>evaluate with given customized Evaluation class
+</p></div><dl class="paramcmts block"><dt class="param">evalMatrixs</dt><dd class="cmt"><p>evaluation matrix</p></dd><dt class="param">evalNames</dt><dd class="cmt"><p>evaluation names</p></dd><dt class="param">eval</dt><dd class="cmt"><p>custom evaluator</p></dd><dt>returns</dt><dd class="cmt"><p>eval information</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#evalSet" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="evalSet(evalMatrixs:Array[ml.dmlc.xgboost4j.scala.DMatrix],evalNames:Array[String],iter:Int):String"></a><a id="evalSet(Array[DMatrix],Array[String],Int):String"></a>
+      <span class="permalink">
+      <a href="Booster.html#evalSet(evalMatrixs:Array[ml.dmlc.xgboost4j.scala.DMatrix],evalNames:Array[String],iter:Int):String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">evalSet</span><span class="params">(<span name="evalMatrixs">evalMatrixs: <span class="extype" name="scala.Array">Array</span>[<a href="DMatrix.html" class="extype" name="ml.dmlc.xgboost4j.scala.DMatrix">DMatrix</a>]</span>, <span name="evalNames">evalNames: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="iter">iter: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">evaluate with given dmatrixs.</p><div class="fullcomment"><div class="comment cmt"><p>evaluate with given dmatrixs.
+</p></div><dl class="paramcmts block"><dt class="param">evalMatrixs</dt><dd class="cmt"><p>dmatrixs for evaluation</p></dd><dt class="param">evalNames</dt><dd class="cmt"><p>name for eval dmatrixs, used for check results</p></dd><dt class="param">iter</dt><dd class="cmt"><p>current eval iteration</p></dd><dt>returns</dt><dd class="cmt"><p>eval information</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#finalize" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="finalize():Unit"></a>
+      <span class="permalink">
+      <a href="Booster.html#finalize():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Booster.html" class="extype" name="ml.dmlc.xgboost4j.scala.Booster">Booster</a> → AnyRef</dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#getAttr" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getAttr(key:String):String"></a><a id="getAttr(String):String"></a>
+      <span class="permalink">
+      <a href="Booster.html#getAttr(key:String):String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getAttr</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Get attribute from the Booster.</p><div class="fullcomment"><div class="comment cmt"><p>Get attribute from the Booster.
+</p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>attr name</p></dd><dt>returns</dt><dd class="cmt"><p>attr value</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#getAttrs" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getAttrs:Map[String,String]"></a>
+      <span class="permalink">
+      <a href="Booster.html#getAttrs:Map[String,String]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getAttrs</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Get attributes stored in the Booster as a Map.</p><div class="fullcomment"><div class="comment cmt"><p>Get attributes stored in the Booster as a Map.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>A map contain attribute pairs.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getClass():Class[_]"></a>
+      <span class="permalink">
+      <a href="Booster.html#getClass():Class[_]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#getFeatureScore" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getFeatureScore(featureNames:Array[String]):scala.collection.mutable.Map[String,Integer]"></a><a id="getFeatureScore(Array[String]):Map[String,Integer]"></a>
+      <span class="permalink">
+      <a href="Booster.html#getFeatureScore(featureNames:Array[String]):scala.collection.mutable.Map[String,Integer]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getFeatureScore</span><span class="params">(<span name="featureNames">featureNames: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.mutable.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="java.lang.Integer">Integer</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Get importance of each feature based on weight only
+(number of splits), with specified feature names.</p><div class="fullcomment"><div class="comment cmt"><p>Get importance of each feature based on weight only
+(number of splits), with specified feature names.
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>featureScoreMap  key: feature name, value: feature importance score</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#getFeatureScore" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getFeatureScore(featureMap:String):scala.collection.mutable.Map[String,Integer]"></a><a id="getFeatureScore(String):Map[String,Integer]"></a>
+      <span class="permalink">
+      <a href="Booster.html#getFeatureScore(featureMap:String):scala.collection.mutable.Map[String,Integer]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getFeatureScore</span><span class="params">(<span name="featureMap">featureMap: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>)</span><span class="result">: <span class="extype" name="scala.collection.mutable.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="java.lang.Integer">Integer</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Get importance of each feature based on weight only (number of splits)
+</p><div class="fullcomment"><div class="comment cmt"><p>Get importance of each feature based on weight only (number of splits)
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>featureScoreMap  key: feature index, value: feature importance score</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#getModelDump" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="getModelDump(featureNames:Array[String],withStats:Boolean,format:String):Array[String]"></a><a id="getModelDump(Array[String],Boolean,String):Array[String]"></a>
+      <span class="permalink">
+      <a href="Booster.html#getModelDump(featureNames:Array[String],withStats:Boolean,format:String):Array[String]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getModelDump</span><span class="params">(<span name="featureNames">featureNames: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="withStats">withStats: <span class="extype" name="scala.Boolean">Boolean</span></span>, <span name="format">format: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      
+      
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#getModelDump" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getModelDump(featureNames:Array[String]):Array[String]"></a><a id="getModelDump(Array[String]):Array[String]"></a>
+      <span class="permalink">
+      <a href="Booster.html#getModelDump(featureNames:Array[String]):Array[String]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getModelDump</span><span class="params">(<span name="featureNames">featureNames: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Dump model as Array of string with specified feature names.</p><div class="fullcomment"><div class="comment cmt"><p>Dump model as Array of string with specified feature names.
+</p></div><dl class="paramcmts block"><dt class="param">featureNames</dt><dd class="cmt"><p>Names of features.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#getModelDump" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getModelDump(featureMap:String,withStats:Boolean,format:String):Array[String]"></a><a id="getModelDump(String,Boolean,String):Array[String]"></a>
+      <span class="permalink">
+      <a href="Booster.html#getModelDump(featureMap:String,withStats:Boolean,format:String):Array[String]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getModelDump</span><span class="params">(<span name="featureMap">featureMap: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">null</span></span>, <span name="withStats">withStats: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="format">format: <span class="extype" name="scala.Predef.String">String</span> = <span class="symbol">&quot;text&quot;</span></span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Dump model as Array of string
+</p><div class="fullcomment"><div class="comment cmt"><p>Dump model as Array of string
+</p></div><dl class="paramcmts block"><dt class="param">featureMap</dt><dd class="cmt"><p>featureMap file</p></dd><dt class="param">withStats</dt><dd class="cmt"><p>bool
+                  Controls whether the split statistics are output.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#getScore" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getScore(featureNames:Array[String],importanceType:String):Map[String,Double]"></a><a id="getScore(Array[String],String):Map[String,Double]"></a>
+      <span class="permalink">
+      <a href="Booster.html#getScore(featureNames:Array[String],importanceType:String):Map[String,Double]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getScore</span><span class="params">(<span name="featureNames">featureNames: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>, <span name="importanceType">importanceType: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Double">Double</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Get importance of each feature based on information gain or cover
+, with specified feature names.</p><div class="fullcomment"><div class="comment cmt"><p>Get importance of each feature based on information gain or cover
+, with specified feature names.
+Supported: [&quot;gain, &quot;cover&quot;, &quot;total_gain&quot;, &quot;total_cover&quot;]
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>featureScoreMap  key: feature name, value: feature importance score</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#getScore" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="getScore(featureMap:String,importanceType:String):Map[String,Double]"></a><a id="getScore(String,String):Map[String,Double]"></a>
+      <span class="permalink">
+      <a href="Booster.html#getScore(featureMap:String,importanceType:String):Map[String,Double]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getScore</span><span class="params">(<span name="featureMap">featureMap: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="importanceType">importanceType: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Double">Double</span>]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Get importance of each feature based on information gain or cover
+Supported: [&quot;gain, &quot;cover&quot;, &quot;total_gain&quot;, &quot;total_cover&quot;]
+</p><div class="fullcomment"><div class="comment cmt"><p>Get importance of each feature based on information gain or cover
+Supported: [&quot;gain, &quot;cover&quot;, &quot;total_gain&quot;, &quot;total_cover&quot;]
+</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>featureScoreMap  key: feature index, value: feature importance score</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#getVersion" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="getVersion:Int"></a>
+      <span class="permalink">
+      <a href="Booster.html#getVersion:Int" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">getVersion</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      
+      
+    </li><li name="scala.AnyRef#hashCode" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="hashCode():Int"></a>
+      <span class="permalink">
+      <a href="Booster.html#hashCode():Int" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <span class="permalink">
+      <a href="Booster.html#isInstanceOf[T0]:Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
+      <span class="permalink">
+      <a href="Booster.html#ne(x$1:AnyRef):Boolean" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="scala.AnyRef#notify" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notify():Unit"></a>
+      <span class="permalink">
+      <a href="Booster.html#notify():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#notifyAll" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="notifyAll():Unit"></a>
+      <span class="permalink">
+      <a href="Booster.html#notifyAll():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#predict" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="predict(data:ml.dmlc.xgboost4j.scala.DMatrix,outPutMargin:Boolean,treeLimit:Int):Array[Array[Float]]"></a><a id="predict(DMatrix,Boolean,Int):Array[Array[Float]]"></a>
+      <span class="permalink">
+      <a href="Booster.html#predict(data:ml.dmlc.xgboost4j.scala.DMatrix,outPutMargin:Boolean,treeLimit:Int):Array[Array[Float]]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">predict</span><span class="params">(<span name="data">data: <a href="DMatrix.html" class="extype" name="ml.dmlc.xgboost4j.scala.DMatrix">DMatrix</a></span>, <span name="outPutMargin">outPutMargin: <span class="extype" name="scala.Boolean">Boolean</span> = <span class="symbol">false</span></span>, <span name="treeLimit">treeLimit: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Float">Float</span>]]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Predict with data
+</p><div class="fullcomment"><div class="comment cmt"><p>Predict with data
+</p></div><dl class="paramcmts block"><dt class="param">data</dt><dd class="cmt"><p>dmatrix storing the input</p></dd><dt class="param">outPutMargin</dt><dd class="cmt"><p>Whether to output the raw untransformed margin value.</p></dd><dt class="param">treeLimit</dt><dd class="cmt"><p>Limit number of trees in the prediction; defaults to 0 (use all trees).</p></dd><dt>returns</dt><dd class="cmt"><p>predict result</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#predictContrib" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="predictContrib(data:ml.dmlc.xgboost4j.scala.DMatrix,treeLimit:Int):Array[Array[Float]]"></a><a id="predictContrib(DMatrix,Int):Array[Array[Float]]"></a>
+      <span class="permalink">
+      <a href="Booster.html#predictContrib(data:ml.dmlc.xgboost4j.scala.DMatrix,treeLimit:Int):Array[Array[Float]]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">predictContrib</span><span class="params">(<span name="data">data: <a href="DMatrix.html" class="extype" name="ml.dmlc.xgboost4j.scala.DMatrix">DMatrix</a></span>, <span name="treeLimit">treeLimit: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Float">Float</span>]]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Output feature contributions toward predictions of given data
+</p><div class="fullcomment"><div class="comment cmt"><p>Output feature contributions toward predictions of given data
+</p></div><dl class="paramcmts block"><dt class="param">data</dt><dd class="cmt"><p>dmatrix storing the input</p></dd><dt class="param">treeLimit</dt><dd class="cmt"><p>Limit number of trees in the prediction; defaults to 0 (use all trees).</p></dd><dt>returns</dt><dd class="cmt"><p>The feature contributions and bias.</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd><dt>Exceptions thrown</dt><dd><span class="cmt"><p><span class="extype" name="XGBoostError"><code>XGBoostError</code></span> native error</p></span></dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#predictLeaf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="predictLeaf(data:ml.dmlc.xgboost4j.scala.DMatrix,treeLimit:Int):Array[Array[Float]]"></a><a id="predictLeaf(DMatrix,Int):Array[Array[Float]]"></a>
+      <span class="permalink">
+      <a href="Booster.html#predictLeaf(data:ml.dmlc.xgboost4j.scala.DMatrix,treeLimit:Int):Array[Array[Float]]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">predictLeaf</span><span class="params">(<span name="data">data: <a href="DMatrix.html" class="extype" name="ml.dmlc.xgboost4j.scala.DMatrix">DMatrix</a></span>, <span name="treeLimit">treeLimit: <span class="extype" name="scala.Int">Int</span> = <span class="symbol">0</span></span>)</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Float">Float</span>]]</span>
+      </span>
+      
+      <p class="shortcomment cmt">Predict the leaf indices
+</p><div class="fullcomment"><div class="comment cmt"><p>Predict the leaf indices
+</p></div><dl class="paramcmts block"><dt class="param">data</dt><dd class="cmt"><p>dmatrix storing the input</p></dd><dt class="param">treeLimit</dt><dd class="cmt"><p>Limit number of trees in the prediction; defaults to 0 (use all trees).</p></dd><dt>returns</dt><dd class="cmt"><p>predict result</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd><dt>Exceptions thrown</dt><dd><span class="cmt"><p><span class="extype" name="XGBoostError"><code>XGBoostError</code></span> native error</p></span></dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#read" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="read(kryo:com.esotericsoftware.kryo.Kryo,input:com.esotericsoftware.kryo.io.Input):Unit"></a><a id="read(Kryo,Input):Unit"></a>
+      <span class="permalink">
+      <a href="Booster.html#read(kryo:com.esotericsoftware.kryo.Kryo,input:com.esotericsoftware.kryo.io.Input):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">read</span><span class="params">(<span name="kryo">kryo: <span class="extype" name="com.esotericsoftware.kryo.Kryo">Kryo</span></span>, <span name="input">input: <span class="extype" name="com.esotericsoftware.kryo.io.Input">Input</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Booster.html" class="extype" name="ml.dmlc.xgboost4j.scala.Booster">Booster</a> → KryoSerializable</dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#saveModel" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="saveModel(out:java.io.OutputStream):Unit"></a><a id="saveModel(OutputStream):Unit"></a>
+      <span class="permalink">
+      <a href="Booster.html#saveModel(out:java.io.OutputStream):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">saveModel</span><span class="params">(<span name="out">out: <span class="extype" name="java.io.OutputStream">OutputStream</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">save model to Output stream
+</p><div class="fullcomment"><div class="comment cmt"><p>save model to Output stream
+</p></div><dl class="paramcmts block"><dt class="param">out</dt><dd class="cmt"><p>Output stream</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#saveModel" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="saveModel(modelPath:String):Unit"></a><a id="saveModel(String):Unit"></a>
+      <span class="permalink">
+      <a href="Booster.html#saveModel(modelPath:String):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">saveModel</span><span class="params">(<span name="modelPath">modelPath: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">save model to modelPath
+</p><div class="fullcomment"><div class="comment cmt"><p>save model to modelPath
+</p></div><dl class="paramcmts block"><dt class="param">modelPath</dt><dd class="cmt"><p>model path</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#setAttr" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setAttr(key:String,value:String):Unit"></a><a id="setAttr(String,String):Unit"></a>
+      <span class="permalink">
+      <a href="Booster.html#setAttr(key:String,value:String):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setAttr</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="value">value: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Set attribute to the Booster.</p><div class="fullcomment"><div class="comment cmt"><p>Set attribute to the Booster.
+</p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>attr name</p></dd><dt class="param">value</dt><dd class="cmt"><p>attr value</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#setAttrs" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setAttrs(params:Map[String,String]):Unit"></a><a id="setAttrs(Map[String,String]):Unit"></a>
+      <span class="permalink">
+      <a href="Booster.html#setAttrs(params:Map[String,String]):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setAttrs</span><span class="params">(<span name="params">params: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">set attributes
+</p><div class="fullcomment"><div class="comment cmt"><p>set attributes
+</p></div><dl class="paramcmts block"><dt class="param">params</dt><dd class="cmt"><p>attributes key-value map</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#setParam" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setParam(key:String,value:AnyRef):Unit"></a><a id="setParam(String,AnyRef):Unit"></a>
+      <span class="permalink">
+      <a href="Booster.html#setParam(key:String,value:AnyRef):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setParam</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="value">value: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Set parameter to the Booster.</p><div class="fullcomment"><div class="comment cmt"><p>Set parameter to the Booster.
+</p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>param name</p></dd><dt class="param">value</dt><dd class="cmt"><p>param value</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#setParams" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="setParams(params:Map[String,AnyRef]):Unit"></a><a id="setParams(Map[String,AnyRef]):Unit"></a>
+      <span class="permalink">
+      <a href="Booster.html#setParams(params:Map[String,AnyRef]):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">setParams</span><span class="params">(<span name="params">params: <span class="extype" name="scala.Predef.Map">Map</span>[<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">set parameters
+</p><div class="fullcomment"><div class="comment cmt"><p>set parameters
+</p></div><dl class="paramcmts block"><dt class="param">params</dt><dd class="cmt"><p>parameters key-value map</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
+      <span class="permalink">
+      <a href="Booster.html#synchronized[T0](x$1:=&gt;T0):T0" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#toByteArray" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="toByteArray:Array[Byte]"></a>
+      <span class="permalink">
+      <a href="Booster.html#toByteArray:Array[Byte]" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toByteArray</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="scala.Byte">Byte</span>]</span>
+      </span>
+      
+      
+    </li><li name="scala.AnyRef#toString" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="toString():String"></a>
+      <span class="permalink">
+      <a href="Booster.html#toString():String" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#update" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="update(dtrain:ml.dmlc.xgboost4j.scala.DMatrix,obj:ml.dmlc.xgboost4j.scala.ObjectiveTrait):Unit"></a><a id="update(DMatrix,ObjectiveTrait):Unit"></a>
+      <span class="permalink">
+      <a href="Booster.html#update(dtrain:ml.dmlc.xgboost4j.scala.DMatrix,obj:ml.dmlc.xgboost4j.scala.ObjectiveTrait):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">update</span><span class="params">(<span name="dtrain">dtrain: <a href="DMatrix.html" class="extype" name="ml.dmlc.xgboost4j.scala.DMatrix">DMatrix</a></span>, <span name="obj">obj: <a href="ObjectiveTrait.html" class="extype" name="ml.dmlc.xgboost4j.scala.ObjectiveTrait">ObjectiveTrait</a></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">update with customize obj func
+</p><div class="fullcomment"><div class="comment cmt"><p>update with customize obj func
+</p></div><dl class="paramcmts block"><dt class="param">dtrain</dt><dd class="cmt"><p>training data</p></dd><dt class="param">obj</dt><dd class="cmt"><p>customized objective class</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#update" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="update(dtrain:ml.dmlc.xgboost4j.scala.DMatrix,iter:Int):Unit"></a><a id="update(DMatrix,Int):Unit"></a>
+      <span class="permalink">
+      <a href="Booster.html#update(dtrain:ml.dmlc.xgboost4j.scala.DMatrix,iter:Int):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">update</span><span class="params">(<span name="dtrain">dtrain: <a href="DMatrix.html" class="extype" name="ml.dmlc.xgboost4j.scala.DMatrix">DMatrix</a></span>, <span name="iter">iter: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <p class="shortcomment cmt">Update (one iteration)
+</p><div class="fullcomment"><div class="comment cmt"><p>Update (one iteration)
+</p></div><dl class="paramcmts block"><dt class="param">dtrain</dt><dd class="cmt"><p>training data</p></dd><dt class="param">iter</dt><dd class="cmt"><p>current iteration number</p></dd></dl><dl class="attributes block"> <dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="symbol">classOf[XGBoostError]</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait():Unit"></a>
+      <span class="permalink">
+      <a href="Booster.html#wait():Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long,x$2:Int):Unit"></a><a id="wait(Long,Int):Unit"></a>
+      <span class="permalink">
+      <a href="Booster.html#wait(x$1:Long,x$2:Int):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="wait(x$1:Long):Unit"></a><a id="wait(Long):Unit"></a>
+      <span class="permalink">
+      <a href="Booster.html#wait(x$1:Long):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier">final </span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@native</span><span class="args">()</span>
+              
+                <span class="name">@throws</span><span class="args">(<span>
+      
+      <span class="defval" name="classOf[java.lang.InterruptedException]">...</span>
+    </span>)</span>
+              
+        </dd></dl></div>
+    </li><li name="ml.dmlc.xgboost4j.scala.Booster#write" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="write(kryo:com.esotericsoftware.kryo.Kryo,output:com.esotericsoftware.kryo.io.Output):Unit"></a><a id="write(Kryo,Output):Unit"></a>
+      <span class="permalink">
+      <a href="Booster.html#write(kryo:com.esotericsoftware.kryo.Kryo,output:com.esotericsoftware.kryo.io.Output):Unit" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">write</span><span class="params">(<span name="kryo">kryo: <span class="extype" name="com.esotericsoftware.kryo.Kryo">Kryo</span></span>, <span name="output">output: <span class="extype" name="com.esotericsoftware.kryo.io.Output">Output</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="Booster.html" class="extype" name="ml.dmlc.xgboost4j.scala.Booster">Booster</a> → KryoSerializable</dd></dl></div>
+    </li>
+              </ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="com.esotericsoftware.kryo.KryoSerializable">
+              <h3>Inherited from <span class="extype" name="com.esotericsoftware.kryo.KryoSerializable">KryoSerializable</span></h3>
+            </div><div class="parent" name="scala.Serializable">
+              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="java.io.Serializable">
+              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
+            </div><div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+    </body>
+          </div>
+        </div>
+      </div>
+    </body>
+      </html>

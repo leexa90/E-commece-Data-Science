@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Contribute to XGBoost &#8212; xgboost 1.0.0-SNAPSHOT documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="https://assets.readthedocs.org/static/css/badge_only.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="XGBoost Community Guideline" href="community.html" />
+    <link rel="prev" title="XGBoost Command Line version" href="../cli.html" />
+  
+   
+
+  
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="index.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "contrib/index"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="community.html" title="XGBoost Community Guideline"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../cli.html" title="XGBoost Command Line version"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">xgboost 1.0.0-SNAPSHOT documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="index.html#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">XGBoost</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../build.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started.html">Get Started with XGBoost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">XGBoost Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://discuss.xgboost.ai">XGBoost User Forum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gpu/index.html">GPU support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parameter.html">XGBoost Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../R-package/index.html">R package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jvm/index.html">JVM package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../julia.html">Julia package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">CLI interface</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="index.html#">Contribute to XGBoost</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="community.html">Community Guideline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding_guide.html">Coding Guideline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit_tests.html">Adding and running tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs.html">Docs and Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_guide.html">Git Workflow Howtos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release.html">XGBoost Release Policy</a></li>
+</ul>
+</li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">Docs</a></li>
+              
+              <li>Contribute to XGBoost</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="contribute-to-xgboost">
+<h1>Contribute to XGBoost<a class="headerlink" href="index.html#contribute-to-xgboost" title="Permalink to this headline">¶</a></h1>
+<p>XGBoost has been developed by community members. Everyone is welcome to contribute. We value all forms of contributions, including, but not limited to:</p>
+<ul class="simple">
+<li><p>Code reviews for pull requests</p></li>
+<li><p>Documentation and usage examples</p></li>
+<li><p>Community participation in forums and issues</p></li>
+<li><p>Code readability and developer guide</p>
+<ul>
+<li><p>We welcome contributions that add code comments to improve readability.</p></li>
+<li><p>We also welcome contributions to docs to explain the design choices of the XGBoost internals.</p></li>
+</ul>
+</li>
+<li><p>Test cases to make the codebase more robust.</p></li>
+<li><p>Tutorials, blog posts, talks that promote the project.</p></li>
+</ul>
+<p>Here are guidelines for contributing to various aspect of the XGBoost project:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community Guideline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="community.html#general-development-process">General Development Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="community.html#committers">Committers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="community.html#reviewers">Reviewers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="coding_guide.html">Coding Guideline</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="coding_guide.html#c-coding-guideline">C++ Coding Guideline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding_guide.html#python-coding-guideline">Python Coding Guideline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding_guide.html#r-coding-guideline">R Coding Guideline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coding_guide.html#running-formatting-checks-locally">Running Formatting Checks Locally</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="unit_tests.html">Adding and running tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="unit_tests.html#adding-a-new-unit-test">Adding a new unit test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit_tests.html#running-unit-tests-locally">Running Unit Tests Locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit_tests.html#sanitizers-detect-memory-errors-and-data-races">Sanitizers: Detect memory errors and data races</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docs.html">Docs and Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docs.html#documents">Documents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docs.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="git_guide.html">Git Workflow Howtos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="git_guide.html#how-to-resolve-conflict-with-master">How to resolve conflict with master</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_guide.html#how-to-combine-multiple-commits-into-one">How to combine multiple commits into one</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_guide.html#what-is-the-consequence-of-force-push">What is the consequence of force push</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">XGBoost Release Policy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release.html#versioning-policy">Versioning Policy</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="../cli.html" title="previous chapter (use the left arrow)">XGBoost Command Line version</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="community.html" title="next chapter (use the right arrow)">XGBoost Community Guideline</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="community.html" title="XGBoost Community Guideline"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../cli.html" title="XGBoost Command Line version"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">xgboost 1.0.0-SNAPSHOT documentation</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2019, xgboost developers. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+</html>

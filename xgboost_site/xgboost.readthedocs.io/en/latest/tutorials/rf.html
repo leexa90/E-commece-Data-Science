@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Random Forests in XGBoost &#8212; xgboost 1.0.0-SNAPSHOT documentation</title>
+    <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="https://assets.readthedocs.org/static/css/badge_only.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-doc-embed.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Feature Interaction Constraints" href="feature_interaction_constraint.html" />
+    <link rel="prev" title="Monotonic Constraints" href="monotonic.html" />
+  
+   
+
+  
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="rf.html" />
+
+<link rel="stylesheet" href="https://assets.readthedocs.org/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = "tutorials/rf"
+READTHEDOCS_DATA['source_suffix'] = ".rst"
+</script>
+
+<script type="text/javascript" src="https://assets.readthedocs.org/static/javascript/readthedocs-analytics.js"></script>
+
+<!-- end RTD <extrahead> -->
+</head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="feature_interaction_constraint.html" title="Feature Interaction Constraints"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="monotonic.html" title="Monotonic Constraints"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">xgboost 1.0.0-SNAPSHOT documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">XGBoost Tutorials</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="rf.html#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="../index.html" class="text-logo">XGBoost</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../build.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started.html">Get Started with XGBoost</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">XGBoost Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="model.html">Introduction to Boosted Trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aws_yarn.html">Distributed XGBoost with AWS YARN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kubernetes.html">Distributed XGBoost with Kubernetes</a></li>
+<li class="toctree-l2"><a class="reference external" href="../jvm/xgboost4j_spark_tutorial.html">Distributed XGBoost with XGBoost4J-Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dart.html">DART booster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="monotonic.html">Monotonic Constraints</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="rf.html#">Random Forests in XGBoost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feature_interaction_constraint.html">Feature Interaction Constraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_format.html">Text Input Format of DMatrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="param_tuning.html">Notes on Parameter Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external_memory.html">Using XGBoost External Memory Version (beta)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_metric_obj.html">Custom Objective and Evaluation Metric</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://discuss.xgboost.ai">XGBoost User Forum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gpu/index.html">GPU support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parameter.html">XGBoost Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../R-package/index.html">R package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jvm/index.html">JVM package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../julia.html">Julia package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli.html">CLI interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contrib/index.html">Contribute to XGBoost</a></li>
+</ul>
+
+    
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../index.html">Docs</a></li>
+              
+                <li><a href="index.html">XGBoost Tutorials</a></li>
+              
+              <li>Random Forests in XGBoost</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="random-forests-in-xgboost">
+<h1>Random Forests in XGBoost<a class="headerlink" href="rf.html#random-forests-in-xgboost" title="Permalink to this headline">¶</a></h1>
+<p>XGBoost is normally used to train gradient-boosted decision trees and other gradient
+boosted models. Random forests use the same model representation and inference, as
+gradient-boosted decision trees, but a different training algorithm.  One can use XGBoost
+to train a standalone random forest or use random forest as a base model for gradient
+boosting.  Here we focus on training standalone random forest.</p>
+<p>We have native APIs for training random forests since the early days, and a new
+Scikit-Learn wrapper after 0.82 (not included in 0.82).  Please note that the new
+Scikit-Learn wrapper is still <strong>experimental</strong>, which means we might change the interface
+whenever needed.</p>
+<div class="section" id="standalone-random-forest-with-xgboost-api">
+<h2>Standalone Random Forest With XGBoost API<a class="headerlink" href="rf.html#standalone-random-forest-with-xgboost-api" title="Permalink to this headline">¶</a></h2>
+<p>The following parameters must be set to enable random forest training.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">booster</span></code> should be set to <code class="docutils literal notranslate"><span class="pre">gbtree</span></code>, as we are training forests. Note that as this
+is the default, this parameter needn’t be set explicitly.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subsample</span></code> must be set to a value less than 1 to enable random selection of training
+cases (rows).</p></li>
+<li><p>One of <code class="docutils literal notranslate"><span class="pre">colsample_by*</span></code> parameters must be set to a value less than 1 to enable random
+selection of columns. Normally, <code class="docutils literal notranslate"><span class="pre">colsample_bynode</span></code> would be set to a value less than 1
+to randomly sample columns at each tree split.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_parallel_tree</span></code> should be set to the size of the forest being trained.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_boost_round</span></code> should be set to 1 to prevent XGBoost from boosting multiple random
+forests.  Note that this is a keyword argument to <code class="docutils literal notranslate"><span class="pre">train()</span></code>, and is not part of the
+parameter dictionary.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eta</span></code> (alias: <code class="docutils literal notranslate"><span class="pre">learning_rate</span></code>) must be set to 1 when training random forest
+regression.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">random_state</span></code> can be used to seed the random number generator.</p></li>
+</ul>
+<p>Other parameters should be set in a similar way they are set for gradient boosting. For
+instance, <code class="docutils literal notranslate"><span class="pre">objective</span></code> will typically be <code class="docutils literal notranslate"><span class="pre">reg:squarederror</span></code> for regression and
+<code class="docutils literal notranslate"><span class="pre">binary:logistic</span></code> for classification, <code class="docutils literal notranslate"><span class="pre">lambda</span></code> should be set according to a desired
+regularization weight, etc.</p>
+<p>If both <code class="docutils literal notranslate"><span class="pre">num_parallel_tree</span></code> and <code class="docutils literal notranslate"><span class="pre">num_boost_round</span></code> are greater than 1, training will
+use a combination of random forest and gradient boosting strategy. It will perform
+<code class="docutils literal notranslate"><span class="pre">num_boost_round</span></code> rounds, boosting a random forest of <code class="docutils literal notranslate"><span class="pre">num_parallel_tree</span></code> trees at
+each round. If early stopping is not enabled, the final model will consist of
+<code class="docutils literal notranslate"><span class="pre">num_parallel_tree</span></code> * <code class="docutils literal notranslate"><span class="pre">num_boost_round</span></code> trees.</p>
+<p>Here is a sample parameter dictionary for training a random forest on a GPU using
+xgboost:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;colsample_bynode&#39;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+  <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="s1">&#39;num_parallel_tree&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+  <span class="s1">&#39;objective&#39;</span><span class="p">:</span> <span class="s1">&#39;binary:logistic&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;subsample&#39;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+  <span class="s1">&#39;tree_method&#39;</span><span class="p">:</span> <span class="s1">&#39;gpu_hist&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>A random forest model can then be trained as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bst</span> <span class="o">=</span> <span class="n">train</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">dmatrix</span><span class="p">,</span> <span class="n">num_boost_round</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="standalone-random-forest-with-scikit-learn-like-api">
+<h2>Standalone Random Forest With Scikit-Learn-Like API<a class="headerlink" href="rf.html#standalone-random-forest-with-scikit-learn-like-api" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">XGBRFClassifier</span></code> and <code class="docutils literal notranslate"><span class="pre">XGBRFRegressor</span></code> are SKL-like classes that provide random forest
+functionality. They are basically versions of <code class="docutils literal notranslate"><span class="pre">XGBClassifier</span></code> and <code class="docutils literal notranslate"><span class="pre">XGBRegressor</span></code> that
+train random forest instead of gradient boosting, and have default values and meaning of
+some of the parameters adjusted accordingly. In particular:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n_estimators</span></code> specifies the size of the forest to be trained; it is converted to
+<code class="docutils literal notranslate"><span class="pre">num_parallel_tree</span></code>, instead of the number of boosting rounds</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">learning_rate</span></code> is set to 1 by default</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">colsample_bynode</span></code> and <code class="docutils literal notranslate"><span class="pre">subsample</span></code> are set to 0.8 by default</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">booster</span></code> is always <code class="docutils literal notranslate"><span class="pre">gbtree</span></code></p></li>
+</ul>
+<p>For a simple example, you can train a random forest regressor with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">KFold</span>
+
+<span class="c1"># Your code ...</span>
+
+<span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">xgb_model</span> <span class="o">=</span> <span class="n">xgb</span><span class="o">.</span><span class="n">XGBRFRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">train_index</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Note that these classes have a smaller selection of parameters compared to using
+<code class="docutils literal notranslate"><span class="pre">train()</span></code>. In particular, it is impossible to combine random forests with gradient
+boosting using this API.</p>
+</div>
+<div class="section" id="caveats">
+<h2>Caveats<a class="headerlink" href="rf.html#caveats" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>XGBoost uses 2nd order approximation to the objective function. This can lead to results
+that differ from a random forest implementation that uses the exact value of the
+objective function.</p></li>
+<li><p>XGBoost does not perform replacement when subsampling training cases. Each training case
+can occur in a subsampled set either 0 or 1 time.</p></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="monotonic.html" title="previous chapter (use the left arrow)">Monotonic Constraints</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="feature_interaction_constraint.html" title="next chapter (use the right arrow)">Feature Interaction Constraints</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="feature_interaction_constraint.html" title="Feature Interaction Constraints"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="monotonic.html" title="Monotonic Constraints"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">xgboost 1.0.0-SNAPSHOT documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >XGBoost Tutorials</a> &#187;</li> 
+      </ul>
+    </div>
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
+</script>
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2019, xgboost developers. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
+  </body>
+</html>
