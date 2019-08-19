@@ -1,0 +1,9 @@
+1. FOr each customer
+
+2. For each product demand
+- prediction using previous demand, simillar to each customer.
+
+3. insights from each customer
+
+
+- can we segment customers
